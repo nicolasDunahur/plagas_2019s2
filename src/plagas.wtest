@@ -1,0 +1,47 @@
+import plagas.*
+import elementos.*
+
+test "Cucarachas" {
+	
+	const cuca = new Cucarachas(poblacion = 20, peso=20)
+	const casaMoron = new Hogar(mugre = 20 , confort = 50)
+	
+	assert.that(cuca.puedeTrasmitirEnfe())
+	assert.equals(10,cuca.nivelDeDanio())
+	cuca.atacarA(casaMoron)
+	assert.equals(22,cuca.poblacion())
+	assert.equals(22,cuca.peso())
+}
+
+test "Mosquitos" {
+	
+	const dengue = new Mosquitos(poblacion = 100)
+	const casaMoron = new Hogar(mugre = 20 , confort = 50)
+	
+	assert.that(dengue.puedeTrasmitirEnfe())
+	assert.equals(100,dengue.nivelDeDanio())
+	dengue.atacarA(casaMoron)
+	assert.equals(110,dengue.poblacion())
+}
+
+test "Pulgas" {
+	
+	const pulgi = new Pulgas(poblacion = 300)
+	const casaMoron = new Hogar(mugre = 20 , confort = 50)
+	
+	assert.that(pulgi.puedeTrasmitirEnfe())
+	assert.equals(600,pulgi.nivelDeDanio())
+	pulgi.atacarA(casaMoron)
+	assert.equals(330,pulgi.poblacion())
+}
+
+test "Garrapatas" {
+	
+	const garra = new Garrapatas(poblacion = 100)
+	const casaMoron = new Hogar(mugre = 20 , confort = 50)
+	
+	assert.that(garra.puedeTrasmitirEnfe())
+	assert.equals(200,garra.nivelDeDanio())
+	garra.atacarA(casaMoron)
+	assert.equals(120,garra.poblacion())
+}

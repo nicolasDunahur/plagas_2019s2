@@ -1,0 +1,46 @@
+import plagas.*
+import elementos.*
+
+test "Hogar" {
+	
+	const casaMoron = new Hogar(mugre = 20 , confort = 50)
+	const dengue = new Mosquitos(poblacion = 20)
+	
+	assert.that(casaMoron.esBuene())
+	casaMoron.recibirDanioDe(dengue)
+	assert.equals(40,casaMoron.mugre())
+}
+	
+test "Huerta" {
+	
+	const huertaMTE = new Huerta(produccion = 60)
+	const dengue = new Mosquitos(poblacion = 100)
+	
+	assert.that(huertaMTE.esBuene())
+	huertaMTE.recibirDanioDe(dengue)
+	assert.equals(40,huertaMTE.produccion())	
+}
+
+test "Mascota" {
+	
+	const yusepe = new Mascota(salud = 300)
+	const dengue = new Mosquitos(poblacion = 20)
+	
+	assert.that(yusepe.esBuene())
+	yusepe.recibirDanioDe(dengue)
+	assert.equals(280,yusepe.salud())	
+}
+
+test "Barrio" {
+	const lafe = new Barrio()
+	const casaMoron = new Hogar(mugre = 20 , confort = 50)
+	const huertaMTE = new Huerta(produccion = 60)
+	const yusepe = new Mascota(salud = 300)
+	
+	lafe.agregarElementoAlBarrio(yusepe)
+	lafe.agregarElementoAlBarrio(huertaMTE)
+	lafe.agregarElementoAlBarrio(casaMoron)
+	
+	assert.that(lafe.esCopado())	
+}
+
